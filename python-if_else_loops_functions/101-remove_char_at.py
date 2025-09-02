@@ -11,6 +11,3 @@ def remove_char_at(str, n):
         new_str += c
         count += 1
     return new_str
-
-
-print(remove_char_at("012345", 1))
