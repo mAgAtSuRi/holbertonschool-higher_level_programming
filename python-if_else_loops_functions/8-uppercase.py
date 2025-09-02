@@ -9,5 +9,3 @@ def uppercase(str):
         else:
             print(c, end="")
 
-
-uppercase("Bonjour")
