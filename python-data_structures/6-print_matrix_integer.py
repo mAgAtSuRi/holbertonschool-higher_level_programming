@@ -2,10 +2,18 @@
 
 
 def print_matrix_integer(matrix=[[]]):
-    for i in range(len(matrix)):
-        for num in matrix[i]:
-            if num == matrix[i][len(matrix[i]) - 1]:
-                print("{:d}".format(num), end="")
+    for row in matrix:
+        for i in range(len(row)):
+            if i == len(row) - 1:
+                print("{:d}".format(row[i]), end="")
             else:
-                print("{:d}".format(num), end=" ")
+                print("{:d}".format(row[i]), end=" ")
         print()
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print_matrix_integer(matrix)
+print("--")
