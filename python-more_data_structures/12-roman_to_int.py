@@ -13,5 +13,3 @@ def roman_to_int(roman_string):
             result += roman_dic[roman_string[i]]
     result += roman_dic[roman_string[len(roman_string) - 1]]
     return result
-
-print(roman_to_int('XL'))
