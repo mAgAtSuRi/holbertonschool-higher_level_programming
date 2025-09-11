@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+Adds 2 integers and check if its doable
+"""
+
+
 def add_integer(a, b=98):
     """
     Adds two numbers after checking if they are integers or floats.
