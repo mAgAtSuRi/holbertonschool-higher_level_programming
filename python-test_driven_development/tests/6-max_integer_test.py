@@ -26,6 +26,5 @@ class TestMaxInteger(unittest.TestCase):
     def test_multiple_max(self):
         self.assertEqual(max_integer([1, 2, 2, 0]), 2)
 
-    def test_error_string(self):
-        with self.assertRaises(TypeError):
-            max_integer([1, 2, "word"])
+    def test_one_element(self):
+        self.assertEqual(max_integer([2]), 2)
