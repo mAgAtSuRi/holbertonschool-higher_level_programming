@@ -3,11 +3,11 @@
 Hello
 >>> text_indentation("Hello. How are you ? My name is: John")
 Hello.
-
+<BLANKLINE>
 How are you ?
-
+<BLANKLINE>
 My name is:
-
+<BLANKLINE>
 John
 >>> text_indentation()
 Traceback (most recent call last):
