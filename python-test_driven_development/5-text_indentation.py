@@ -18,4 +18,4 @@ def text_indentation(text):
             new_text += text[i] + "\n\n"
         else:
             new_text += text[i]
-    print(new_text)
+    print(new_text, end="")
