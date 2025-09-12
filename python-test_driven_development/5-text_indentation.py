@@ -24,4 +24,3 @@ def text_indentation(text):
             new_text += text[i]
         i += 1
     print(new_text, end="")
-text_indentation("Hello. How are you ? My name is: John")
