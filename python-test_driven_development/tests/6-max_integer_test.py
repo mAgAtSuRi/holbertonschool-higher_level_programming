@@ -8,8 +8,17 @@ class TestMaxInteger(unittest.TestCase):
     def test_ordered_list(self):
         self.assertEqual(max_integer([1, 2, 3, 4]), 4)
 
+    def max_beginning(self):
+        self.assertEqual(max_integer(4, 2, 1, 3), 4)
+
+    def max_middle(self):
+        self.assertEqual(max_integer(4, 2, 10, 1, 3), 10)
+
     def empty_list(self):
         self.assertEqual(max_integer(), None)
+
+    def one_negative_number(self):
+        self.assertEqual(max_integer(10, -5, 2), 10)
 
     def negative_number(self):
         self.assertEqual(max_integer([-10, -1, -3]), -1)
