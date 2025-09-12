@@ -4,11 +4,11 @@ Hello
 >>> text_indentation("Hello. How are you ? My name is: John")
 Hello.
 
- How are you ?
+How are you ?
 
- My name is:
+My name is:
 
- John
+John
 >>> text_indentation()
 Traceback (most recent call last):
 ...
@@ -17,7 +17,7 @@ TypeError: text_indentation() missing 1 required positional argument: 'text'
 Traceback (most recent call last):
 ...
 TypeError: text must be a string
->>> text_indentation(3hello", "john")
+>>> text_indentation("hello", "john")
 Traceback (most recent call last):
 ...
 TypeError: text_indentation() takes 1 positional argument but 2 were given
