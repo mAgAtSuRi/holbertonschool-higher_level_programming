@@ -9,8 +9,8 @@ Hello.
  My name is:
 
  John
- >>> text_indentation()
- Traceback (most recent call last):
+>>> text_indentation()
+Traceback (most recent call last):
 ...
 TypeError: text_indentation() missing 1 required positional argument: 'text'
 >>> text_indentation(24)
