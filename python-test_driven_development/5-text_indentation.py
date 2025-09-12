@@ -12,12 +12,13 @@ def text_indentation(text):
     """
     if type(text) is not str:
         raise TypeError("text must be a string")
+
     new_text = ""
     i = 0
     while i < len(text):
         if text[i] in [".", "?", ":"]:
             new_text += text[i] + "\n\n"
-            if text[i + 1] == " ":
+            while text[i + 1] == " " and i + 1 < len(text):
                 i += 1
         else:
             new_text += text[i]
