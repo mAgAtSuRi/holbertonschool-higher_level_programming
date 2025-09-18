@@ -1,11 +1,12 @@
+#!/usr/bin/python3
 import sys
 
 
 class Nqueens():
 	queen_list = []
 
-	def __init__(self):
-		self.size = sys.argv[1]
+	def __init__(self, size):
+		self.size = int(size)
 		self.board = self.create_board()
 
 	def create_board(self):
@@ -51,3 +52,18 @@ class Nqueens():
 
 	def __str__(self):
 		return self.remove_attacked_square()
+
+if __name__ == "__main__":
+
+	if len(sys.argv) != 2:
+		print("Usage: nqueens N,")
+		exit(1)
+	if type(sys.argv[1]) is not int:
+		print("N must be an integer")
+		exit(1)
+	if sys.argv[1] < 4:
+		print("N must be at least 4")
+		exit(1)
+	
+	nqueen = int(sys.argv[1])
+	
