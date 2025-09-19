@@ -60,16 +60,17 @@ class Nqueens():
 if __name__ == "__main__":
 
 	if len(sys.argv) != 2:
-		print("Usage: nqueens N,")
+		print("Usage: nqueens N")
 		exit(1)
 	try:
-		nqueen = Nqueens(int(sys.argv[1]))
+		n = int(sys.argv[1])
 	
-	except TypeError:
+	except ValueError:
 		print("N must be an integer")
 		exit(1)
-	if int(sys.argv[1]) < 4:
+	if n < 4:
 		print("N must be at least 4")
-		exit(1)	
-	
+		exit(1)
+
+	nqueen = Nqueens(n)
 	print(nqueen)
