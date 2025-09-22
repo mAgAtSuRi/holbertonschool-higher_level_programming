@@ -11,23 +11,60 @@ Exception: area() is not implemented
 >>> b.integer_validator("my_int", 12)
 >>> b.integer_validator("width", 89)
 
-# Test integer_validator with non-integer value
+# Test integer_validator with string
 >>> try:
 ...     b.integer_validator("name", "John")
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [TypeError] name must be an integer
 
-# Test integer_validator with zero value
+# Test integer_validator with zero
 >>> try:
 ...     b.integer_validator("age", 0)
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [ValueError] age must be greater than 0
 
-# Test integer_validator with negative value
+# Test integer_validator with negative number
 >>> try:
 ...     b.integer_validator("distance", -4)
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [ValueError] distance must be greater than 0
+
+# Additional tests with various non-integer types
+
+# tuple
+>>> try:
+...     b.integer_validator("age", (4,))
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+# list
+>>> try:
+...     b.integer_validator("age", [3])
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+# boolean
+>>> try:
+...     b.integer_validator("age", True)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+# set
+>>> try:
+...     b.integer_validator("age", {3, 4})
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+# None
+>>> try:
+...     b.integer_validator("age", None)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
