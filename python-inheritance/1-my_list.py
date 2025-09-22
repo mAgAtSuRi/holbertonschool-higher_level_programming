@@ -9,8 +9,6 @@ class MyList(list):
     """
     class sorting a list
     """
+
     def print_sorted(self):
         print(sorted(self))
-
-my_list = MyList()
-print(my_list)
