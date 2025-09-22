@@ -7,28 +7,27 @@ Traceback (most recent call last):
     ...
 Exception: area() is not implemented
 
-# Test integer_validator with valid integer
->>> b.integer_validator("size", 10)
-# No output, should pass silently
-
-# Test integer_validator with zero or negative value
->>> b.integer_validator("size", 0)
-Traceback (most recent call last):
-    ...
-ValueError: 0 must be greater than 0
-
->>> b.integer_validator("size", -5)
-Traceback (most recent call last):
-    ...
-ValueError: -5 must be greater than 0
+# Test integer_validator with valid integers
+>>> b.integer_validator("my_int", 12)
+>>> b.integer_validator("width", 89)
 
 # Test integer_validator with non-integer value
->>> b.integer_validator("size", 3.5)
-Traceback (most recent call last):
-    ...
-TypeError: 3.5 must be an integer
+>>> try:
+...     b.integer_validator("name", "John")
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] name must be an integer
 
->>> b.integer_validator("size", "4")
-Traceback (most recent call last):
-    ...
-TypeError: 4 must be an integer
+# Test integer_validator with zero value
+>>> try:
+...     b.integer_validator("age", 0)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] age must be greater than 0
+
+# Test integer_validator with negative value
+>>> try:
+...     b.integer_validator("distance", -4)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] distance must be greater than 0
