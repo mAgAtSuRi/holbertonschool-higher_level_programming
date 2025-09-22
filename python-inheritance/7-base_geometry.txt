@@ -1,0 +1,34 @@
+>>> BaseGeometry = __import__('base_geometry').BaseGeometry
+
+# Test area() raises Exception
+>>> b = BaseGeometry()
+>>> b.area()
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
+
+# Test integer_validator with valid integer
+>>> b.integer_validator("size", 10)
+# No output, should pass silently
+
+# Test integer_validator with zero or negative value
+>>> b.integer_validator("size", 0)
+Traceback (most recent call last):
+    ...
+ValueError: 0 must be greater than 0
+
+>>> b.integer_validator("size", -5)
+Traceback (most recent call last):
+    ...
+ValueError: -5 must be greater than 0
+
+# Test integer_validator with non-integer value
+>>> b.integer_validator("size", 3.5)
+Traceback (most recent call last):
+    ...
+TypeError: 3.5 must be an integer
+
+>>> b.integer_validator("size", "4")
+Traceback (most recent call last):
+    ...
+TypeError: 4 must be an integer
