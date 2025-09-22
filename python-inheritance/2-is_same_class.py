@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+module checking if an object is from a class
+"""
 
 
 def is_same_class(obj, a_class):
