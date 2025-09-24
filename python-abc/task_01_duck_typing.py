@@ -3,7 +3,9 @@
 Module to demonstrate abstract classes and duck typing in Python.
 
 This module defines an abstract base class `Shape` and two concrete
-implementations: `Circle` and `Rectangle`.
+implementations: `Circle` and `Rectangle`. It also provides a helper
+function `shape_info()` that prints the area and perimeter of any
+object that implements these methods (duck typing).
 """
 
 from abc import ABC, abstractmethod
@@ -43,7 +45,6 @@ class Shape(ABC):
 class Circle(Shape):
     """
     Concrete class representing a circle.
-    Inherits from `Shape` and implements `area()` and `perimeter()`.
     """
 
     def __init__(self, radius):
@@ -77,7 +78,6 @@ class Circle(Shape):
 class Rectangle(Shape):
     """
     Concrete class representing a rectangle.
-    Inherits from `Shape` and implements `area()` and `perimeter()`.
     """
 
     def __init__(self, width, height):
@@ -108,3 +108,18 @@ class Rectangle(Shape):
             float: perimeter of the rectangle.
         """
         return 2 * (self.width + self.height)
+
+
+def shape_info(arg):
+    """
+    Print the area and perimeter of any object that implements
+    `area()` and `perimeter()` methods.
+
+    This demonstrates duck typing: the function does not check
+    the type of the object, only that it has the required methods.
+
+    Args:
+        arg (object): Any object with `area()` and `perimeter()` methods.
+    """
+    print(f"Area: {arg.area()}")
+    print(f"Perimeter: {arg.perimeter()}")
