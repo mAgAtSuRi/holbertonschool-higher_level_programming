@@ -6,6 +6,11 @@ Module to understand duck typing.
 """
 
 class Shape(ABC):
+	""""
+	Abstract class with 2 methods:
+	- area
+	- perimeter
+	"""
 	@abstractmethod
 	def area(self):
 		pass
@@ -15,6 +20,9 @@ class Shape(ABC):
 
 
 class Circle(Shape):
+	""""
+	Circle class
+	"""
 	def __init__(self, radius):
 		self.radius = radius
 
@@ -26,6 +34,9 @@ class Circle(Shape):
 	
 
 class Rectangle(Shape):
+	"""
+	Rectangle class
+	"""
 	def __init__(self, width, height):
 		self.width = width
 		self.height = height
@@ -36,12 +47,3 @@ class Rectangle(Shape):
 	def perimeter(self):
 		return 2 * self.width + 2 * self.height
 	
-def shape_info(arg):
-	print(arg.area())
-	print(arg.perimeter())
-
-circle = Circle(radius=5)
-rectangle = Rectangle(width=4, height=7)
-
-shape_info(circle)
-shape_info(rectangle)
