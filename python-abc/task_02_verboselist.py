@@ -8,10 +8,7 @@ class VerboseList(list):
 
     def extend(self, iterable):
         super().extend(iterable)
-        element_added = 0
-        for i in range(len(iterable)):
-            element_added += 1
-        print(f"Extended the list with [{element_added}] items.")
+        print(f"Extended the list with [{len(iterable)}] items.")
 
     def remove(self, value):
         print(f"Removed [{value}] from the list.")
@@ -20,4 +17,4 @@ class VerboseList(list):
     def pop(self, index=-1):
         item = self[index]
         print(f"Popped [{item}] from the list.")
-        super().pop(index)
+        return super().pop(index)
