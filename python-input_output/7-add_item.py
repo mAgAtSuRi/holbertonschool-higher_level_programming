@@ -14,5 +14,7 @@ else:
 
 for i in range(1, len(sys.argv)):
     arg_list.append(sys.argv[i])
+# other technique:
+# arg_list.extend(sys.argv[1:])
 
 save_to_json_file(arg_list, "add_item.json")
