@@ -11,4 +11,14 @@ class Student:
         self.age = age
 
     def to_json(self):
-        return Student.__dict__
+        return self.__dict__
+
+students = [Student("John", "Doe", 23), Student("Bob", "Dylan", 27)]
+
+for student in students:
+    j_student = student.to_json()
+    print(j_student)
+    # print(j_student['first_name'])
+    # print(type(j_student['first_name']))
+    # print(j_student['age'])
+    # print(type(j_student['age']))
