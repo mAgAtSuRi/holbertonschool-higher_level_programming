@@ -1,0 +1,1 @@
+JSON format + open/close a file
