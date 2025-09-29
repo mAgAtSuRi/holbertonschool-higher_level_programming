@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 """Module for returning dic description with simple data structures"""
-import json
 
 
 def class_to_json(obj):
