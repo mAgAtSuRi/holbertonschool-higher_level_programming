@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-
 import xml.etree.ElementTree as ET
 
-"""Module for Serializing and Deserializing with XML"""
+"""Module for XML serialization and deserialization"""
 
 
 def serialize_to_xml(dictionary, filename):
@@ -12,7 +11,7 @@ def serialize_to_xml(dictionary, filename):
         for key, value in dictionary.items():
             child = ET.SubElement(root, key)
             child.text = str(value)
-        tree = ET.SubElement(root, key)
+        tree = ET.ElementTree(root)
         tree.write(filename, encoding="utf-8", xml_declaration=True)
         return True
     except Exception:
@@ -26,6 +25,8 @@ def deserialize_from_xml(filename):
         root = tree.getroot()
         result = {}
         for child in root:
+            text = child.text
+            # Try to convert to int, bool, or keep string
             if text is None:
                 result[child.tag] = None
             elif text.lower() in ("true", "false"):
