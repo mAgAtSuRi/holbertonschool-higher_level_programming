@@ -12,11 +12,16 @@ class CustomObject:
         self.age = age
         self.is_student = is_student
 
+    def display(self):
+        dic = {"Name:": self.name, "Age:": self.age, "Is Student:": self.is_student}
+        for k, v in dic.items():
+            print(f"{k} {v}")
+
     def serialize(self, filename):
-        with open(filename, "w") as f:
+        with open(filename, "wb") as f:
             pickle.dump(self, f)
 
     @classmethod
     def deserialize(cls, filename):
-        with open(filename) as f:
+        with open(filename, "rb") as f:
             return pickle.load(f)
