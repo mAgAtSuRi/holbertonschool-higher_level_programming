@@ -6,9 +6,12 @@ import json
 
 def serialize_and_save_to_file(data, filename):
     """serialize data in filename"""
-    json.dump(data, filename)
+    with open(filename, 'w') as f:
+        json.dump(data, f)
 
 
 def load_and_deserialize(filename):
     """deserialize data from filenam and return it"""
-    return json.load(filename)
+    with open(filename) as f:
+        return json.load(f)
+    
