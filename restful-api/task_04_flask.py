@@ -12,7 +12,7 @@ users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
 
 @app.route("/data")
 def json_function():
-	return jsonify(users)
+	return jsonify(list(users.keys()))
 
 @app.route("/status")
 def status_function():
