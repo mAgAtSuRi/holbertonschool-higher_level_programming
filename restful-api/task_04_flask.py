@@ -8,7 +8,7 @@ app = Flask(__name__)
 def home():
 	return "<p>Welcome to the Flask API!</p>"
 
-users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
+users = {}
 
 @app.route("/data")
 def json_function():
