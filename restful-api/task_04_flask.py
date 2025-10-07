@@ -28,8 +28,8 @@ def dynamic_content_func(username):
 @app.route("/add_user", methods=["POST"])
 def add_user():
 	data = request.get_json()
-
-	if "username" not in data:
+	username = data.get("username")
+	if username not in data:
 		return jsonify({"error": "Username is required"}), 400
 	
 	name = data["username"]
