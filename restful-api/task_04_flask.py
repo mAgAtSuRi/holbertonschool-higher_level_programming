@@ -38,7 +38,7 @@ def add_user():
 	
 	users[name] = data
 	message = {
-		"message": f"User {name} added",
+		"message": f"User added",
 		"user": data
 	}
 	return jsonify(message), 201
