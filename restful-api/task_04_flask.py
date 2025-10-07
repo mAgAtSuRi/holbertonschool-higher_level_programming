@@ -33,9 +33,7 @@ def add_user():
 		return jsonify({"error": "Username is required"}), 400
 	
 	name = data["username"]
-	if name in users:
-		return jsonify({"error": "Username already exists"}), 409
-	
+
 	users[name] = data
 	message = {
 		"message": f"User added",
