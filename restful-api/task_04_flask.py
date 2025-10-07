@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-	return "<p>Welcome to the Flask API!</p>"
+	return "Welcome to the Flask API!>"
 
 users = {}
 
@@ -33,6 +33,9 @@ def add_user():
 		return jsonify({"error": "Username is required"}), 400
 	
 	name = data["username"]
+	if name in users:
+		return jsonify({"error": "User already exists"}), 409
+	
 	users[name] = data
 	message = {
 		"message": f"User {name} added",
