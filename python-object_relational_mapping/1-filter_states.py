@@ -13,7 +13,7 @@ if __name__ == "__main__":
         host="localhost", port=3306, user=user, password=password, db=db_name
     )
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE states.name LIKE 'N%'\
+    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%'\
                    ORDER BY states.id ASC")
     all_states = cursor.fetchall()
     for state in all_states:
