@@ -19,7 +19,7 @@ if __name__ == "__main__":
         SELECT cities.name
         FROM cities
         INNER JOIN states ON cities.state_id = states.id
-        WHERE states.name = %s
+        WHERE states.name LIKE BINARY %s
         ORDER BY cities.name ASC
     """,
         (state_name,),
