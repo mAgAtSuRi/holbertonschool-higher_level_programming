@@ -1,30 +1,35 @@
 #!/usr/bin/python3
-"""Lists all states from the database hbtn_0e_0_usa."""
-import sys
-import MySQLdb
+"""
+    Script to get all states from the database hbtn_0e_0_usa
 
-def main():
-    # Récupère les arguments (pas de validation demandée)
+    ARGUMENTS :
+            mysql username
+            mysql password
+            database name
+    SORTED BY :
+        ASC states.id
+"""
+import MySQLdb
+import sys
+
+if __name__ == '__main__':
+
+    # Recover argument from user
     user = sys.argv[1]
-    password = sys.argv[2]
+    pswd = sys.argv[2]
     db_name = sys.argv[3]
 
-    # Connexion à la base MySQL sur localhost:3306
-    db = MySQLdb.connect(host="localhost", port=3306,
-                         user=user, passwd=password, db=db_name)
+    # connect database
+    db = MySQLdb.connect(host='localhost', user=user,
+                         passwd=pswd, db=db_name, port=3306)
 
-    cursor = db.cursor()
-    # Récupère tous les états triés par id croissant
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
-    rows = cursor.fetchall()
+    # create cursor
+    cur = db.cursor()
 
-    for row in rows:
+    # executing MySQL Queries in Python
+    cur.execute("SELECT * FROM states ORDER BY states.id ASC")
+
+    # display
+    all_states = cur.fetchall()
+    for row in all_states:
         print(row)
-
-    # nettoyage
-    cursor.close()
-    db.close()
-
-
-if __name__ == "__main__":
-    main()
