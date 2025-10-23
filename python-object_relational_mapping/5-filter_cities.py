@@ -20,11 +20,11 @@ if __name__ == "__main__":
         FROM cities
         INNER JOIN states ON cities.state_id = states.id
         WHERE states.name LIKE BINARY %s
-        ORDER BY cities.name ASC
+        ORDER BY cities.id ASC
     """,
         (state_name,),
     )
 
     rows = cursor.fetchall()
-    for row in rows:
-        print(row)
+    cities_name = [row[0] for row in rows]
+    print(", ".join(cities_name))
