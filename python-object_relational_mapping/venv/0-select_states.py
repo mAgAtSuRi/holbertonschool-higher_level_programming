@@ -1,5 +1,14 @@
 #!/usr/bin/python3
-"""Lists all states from the database hbtn_0e_0_usa."""
+"""
+    Script to get all states from the database hbtn_0e_0_usa
+
+    ARGUMENTS :
+            mysql username
+            mysql password
+            database name
+    SORTED BY :
+        ASC states.id
+"""
 import sys
 import MySQLdb
 
