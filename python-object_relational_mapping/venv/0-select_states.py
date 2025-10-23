@@ -13,7 +13,7 @@ import sys
 import MySQLdb
 
 
-def main():
+if __name__ == "__main__":
     # Récupère les arguments (pas de validation demandée)
     user = sys.argv[1]
     password = sys.argv[2]
@@ -36,5 +36,4 @@ def main():
     db.close()
 
 
-if __name__ == "__main__":
-    main()
+
