@@ -18,6 +18,3 @@ if __name__ == "__main__":
     all_states = cursor.fetchall()
     for state in all_states:
         print(state)
-
-    cursor.close()
-    db.close()
