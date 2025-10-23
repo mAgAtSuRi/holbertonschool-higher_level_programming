@@ -12,21 +12,24 @@
 import MySQLdb
 import sys
 
-
 if __name__ == '__main__':
-    # Récupère les arguments (pas de validation demandée)
+
+    # Recover argument from user
     user = sys.argv[1]
-    password = sys.argv[2]
+    pswd = sys.argv[2]
     db_name = sys.argv[3]
 
-    # Connexion à la base MySQL sur localhost:3306
-    db = MySQLdb.connect(host="localhost", port=3306,
-                         user=user, passwd=password, db=db_name)
+    # connect database
+    db = MySQLdb.connect(host='localhost', user=user,
+                         passwd=pswd, db=db_name, port=3306)
 
+    # create cursor
     cur = db.cursor()
-    # Récupère tous les états triés par id croissant
-    cur.execute("SELECT * FROM states ORDER BY states.id ASC")
-    rows = cur.fetchall()
 
-    for row in rows:
+    # executing MySQL Queries in Python
+    cur.execute("SELECT * FROM states ORDER BY states.id ASC")
+
+    # display
+    all_states = cur.fetchall()
+    for row in all_states:
         print(row)
