@@ -6,11 +6,12 @@ import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-if len(sys.argv) != 4:
-    print("Usage: ./7-model_state_fetch_all.py <username> <password> <database>")
-    sys.exit(1)
-
 if __name__ == "__main__":
+    if len(sys.argv) != 4:
+        print("Usage: ./7-model_state_fetch_all.py <username>"
+              "<password> <database>")
+        sys.exit(1)
+
     user = sys.argv[1]
     password = sys.argv[2]
     db = sys.argv[3]
