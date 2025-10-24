@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     user, password, db = sys.argv[1], sys.argv[2], sys.argv[3]
 
-    # Connexion à MySQL
+    # Connexion à la base
     engine = create_engine(
         f"mysql+mysqldb://{user}:{password}@localhost:3306/{db}",
         pool_pre_ping=True
@@ -23,8 +23,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Récupérer le premier State (id minimal) sans fetch all
-    first_state = session.query(State).filter(State.id == 1).first()
+    # Récupère uniquement le premier State trié par id
+    first_state = session.query(State).order_by(State.id).first()
 
     if first_state is None:
         print("Nothing")
