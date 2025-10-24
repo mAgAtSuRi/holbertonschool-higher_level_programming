@@ -1,31 +1,29 @@
 #!/usr/bin/python3
 """
-This module contain query for getting all
-instances of a class State
+Prints the first State object from the database hbtn_0e_6_usa
 """
+
 import sys
-from model_state import Base, State
-from sqlalchemy import (create_engine)
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from model_state import Base, State
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
-        sys.argv[1],
-        sys.argv[2],
-        sys.argv[3]),
-        pool_pre_ping=True)
-    Base.metadata.create_all(engine)
+    user, password, db = sys.argv[1], sys.argv[2], sys.argv[3]
+
+    engine = create_engine(
+        f"mysql+mysqldb://{user}:{password}@localhost:3306/{db}", pool_pre_ping=True
+    )
 
     Session = sessionmaker(bind=engine)
-    session = Session()  # creation d'une sessions
+    session = Session()
 
-    # réalisation d'une query Select id, name from state order by id où id =1
-    # ici, pas besoin de boucle car on récupère le 1er résultat
+    # Récupérer explicitement le State avec id=1
     state = session.query(State).filter(State.id == 1).first()
-    if state:
-        print(f"{state.id}: {state.name}")
+
+    if state is None:
+        print("Nothing")
     else:
-        print("Not found")
+        print(f"{state.id}: {state.name}")
 
     session.close()
-    engine.dispose()
