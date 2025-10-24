@@ -24,7 +24,7 @@ if __name__ == "__main__":
     session = Session()
 
     # Récupère uniquement le premier State trié par id
-    first_state = session.query(State).order_by(State.id).first()
+    first_state = session.query(State).first()
 
     if first_state is None:
         print("Nothing")
