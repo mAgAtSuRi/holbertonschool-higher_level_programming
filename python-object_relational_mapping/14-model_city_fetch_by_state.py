@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+List all cities and their state
+"""
 import sys
 from model_state import Base, State
 from model_city import City
