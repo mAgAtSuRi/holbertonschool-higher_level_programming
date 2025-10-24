@@ -24,3 +24,14 @@ if __name__ == "__main__":
         print(f"{city.state.name}: ({city.id}) {city.name}")
 
     session.close()
+
+    # Other solution with join instead of relationship
+    # cities_list = (
+    #     session.query(City, State)
+    #     .join(State)
+    #     .order_by(City.id.asc())
+    #     .all()
+    # )
+
+    # for c_name, s_name in cities_list:
+    #     print(f"{s_name.name}: ({c_name.id}) {c_name.name}")
