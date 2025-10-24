@@ -24,7 +24,7 @@ if __name__ == "__main__":
     session = Session()
 
     # Récupérer le premier State (id minimal) sans fetch all
-    first_state = session.query(State).order_by(State.id).first()
+    first_state = session.query(State).filter(State.id == 1).first()
 
     if first_state is None:
         print("Nothing")
