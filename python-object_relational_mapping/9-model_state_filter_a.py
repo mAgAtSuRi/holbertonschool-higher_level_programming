@@ -10,18 +10,17 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
-	user = sys.argv[1]
-	password = sys.argv[2]
-	db = sys.argv[3]
+    user = sys.argv[1]
+    password = sys.argv[2]
+    db = sys.argv[3]
 
-	engine = create_engine(
-		f"mysql+mysqldb://{user}:{password}@localhost:3306/{db}"
-	)
+    engine = create_engine(f"mysql+mysqldb://
+                           {user}:{password}@localhost:3306/{db}")
 
-	Session = sessionmaker(bind=engine)
-	session = Session()
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-	states_with_a = session.query(State).filter(State.name.like('%a%')).all()
+    states_with_a = session.query(State).filter(State.name.like("%a%")).all()
 
-	for state in states_with_a:
-		print(f"{state.id}: {state.name}")
+    for state in states_with_a:
+        print(f"{state.id}: {state.name}")
