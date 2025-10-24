@@ -16,8 +16,7 @@ if __name__ == "__main__":
 
     # Connexion à la base
     engine = create_engine(
-        f"mysql+mysqldb://{user}:{password}@localhost:3306/{db}",
-        pool_pre_ping=True
+        f"mysql+mysqldb://{user}:{password}@localhost:3306/{db}", pool_pre_ping=True
     )
     Base.metadata.create_all(engine)
 
@@ -33,3 +32,4 @@ if __name__ == "__main__":
         print(f"{first_state.id}: {first_state.name}")
 
     session.close()
+    engine.dispose()
