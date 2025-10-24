@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /root/holbertonschool-higher_level_programming-9/python-object_relational_mapping/venv
+set -gx VIRTUAL_ENV /home/tristan/holbertonschool-higher_level_programming-10/python-object_relational_mapping/venv
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH
