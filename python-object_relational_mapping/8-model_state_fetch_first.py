@@ -9,8 +9,8 @@ from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 if __name__ == "__main__":
-    # if len(sys.argv) != 4:
-    #     sys.exit(1)
+    if len(sys.argv) != 4:
+        sys.exit(1)
 
     user, password, db = sys.argv[1], sys.argv[2], sys.argv[3]
 
