@@ -6,6 +6,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
+    if len(sys.argv) != 4:
+        sys.exit(1)
+
     user = sys.argv[1]
     password = sys.argv[2]
     db = sys.argv[3]
