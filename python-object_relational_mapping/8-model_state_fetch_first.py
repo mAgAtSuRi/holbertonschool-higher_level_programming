@@ -6,8 +6,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        sys.exit(1)
+    # if len(sys.argv) != 4:
+    #     sys.exit(1)
 
     user = sys.argv[1]
     password = sys.argv[2]
@@ -22,6 +22,6 @@ if __name__ == "__main__":
 
     first_state = session.query(State).order_by(State.id).first()
     if first_state:
-        print(f"{first_state.id}, {first_state.name}")
+        print(f"{first_state.id}: {first_state.name}")
 
     session.close()
