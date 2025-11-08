@@ -2,7 +2,7 @@
 const {argv} = require('node:process');
 
 if (argv.length <= 2) {
-	console.log('No aregument');
+	console.log('No argument');
 }
 
 else if (argv.length == 3) {
