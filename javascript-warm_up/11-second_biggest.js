@@ -6,13 +6,14 @@ let secondBiggest = 0;
 let i = 2;
 
 while (argv[i]) {
-  let number = Number(argv[i])
-	if (number > biggest) {
+  const number = Number(argv[i]);
+  if (number > biggest) {
     secondBiggest = biggest;
-		biggest = number;
-	} else if (number > secondBiggest) {
+    biggest = number;
+  } else if (number > secondBiggest) {
     secondBiggest = number;
   }
   i++;
 }
+
 console.log(secondBiggest);
